@@ -1,0 +1,169 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>온느 필라테스 — 서래마을점 | 데모</title>
+<style>
+  :root{
+    --ink:#2b2a26; --sub:#7a776e; --line:#e7e4dc; --bg:#faf9f6; --soft:#f1efe9;
+    --sage:#8a9b8e; --sage-dk:#6d7f71; --cream:#efe9de; --gold:#b99a5f;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:"Apple SD Gothic Neo","Pretendard",-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+  .serif{font-family:"Nanum Myeongjo","Apple SD Gothic Neo",serif}
+
+  nav{position:sticky;top:0;background:rgba(250,249,246,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:50}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-size:19px;letter-spacing:3px;font-weight:700}
+  .logo small{display:block;font-size:10px;letter-spacing:4px;color:var(--sub);font-weight:500}
+  .nav-links{display:flex;gap:24px;font-size:14px}
+  .nav-links a{color:var(--sub);text-decoration:none}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{background:var(--sage);color:#fff;padding:10px 20px;border-radius:2px;font-size:13px;letter-spacing:1px;text-decoration:none}
+  .nav-cta:hover{background:var(--sage-dk)}
+
+  .hero{padding:90px 0 70px;text-align:center;background:
+    linear-gradient(180deg, var(--cream) 0%, var(--bg) 85%)}
+  .hero .eyebrow{font-size:12px;letter-spacing:5px;color:var(--gold);font-weight:700}
+  .hero h1{margin-top:18px;font-size:clamp(28px,5vw,46px);font-weight:600;letter-spacing:-.5px;line-height:1.35}
+  .hero p{margin:20px auto 0;font-size:16px;color:var(--sub);max-width:480px}
+  .btn{display:inline-block;padding:15px 34px;border-radius:2px;font-size:14px;letter-spacing:1.5px;text-decoration:none;cursor:pointer;border:none;font-family:inherit}
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:#000}
+  .btn-line{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+  .hero .btn{margin-top:34px}
+
+  section{padding:70px 0}
+  .sec-head{text-align:center;margin-bottom:44px}
+  .sec-head .eyebrow{font-size:11px;letter-spacing:4px;color:var(--gold);font-weight:700}
+  h2{margin-top:10px;font-size:clamp(22px,3.4vw,32px);font-weight:600}
+  .sec-sub{margin-top:12px;color:var(--sub);font-size:15px}
+
+  .progs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+  .prog{background:#fff;border:1px solid var(--line);padding:34px 28px;text-align:center}
+  .prog .num{font-size:12px;letter-spacing:3px;color:var(--gold)}
+  .prog h3{margin-top:12px;font-size:18px;font-weight:700}
+  .prog p{margin-top:10px;font-size:14px;color:var(--sub)}
+  .prog .cap{margin-top:16px;display:inline-block;font-size:12px;background:var(--soft);padding:5px 14px;border-radius:999px;color:var(--sub)}
+
+  .strip{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .strip-in{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;text-align:center}
+  .strip b{display:block;font-size:24px;font-weight:700}
+  .strip i{font-style:normal;font-size:13px;color:var(--sub)}
+
+  .price-table{max-width:640px;margin:0 auto;background:#fff;border:1px solid var(--line)}
+  .price-row{display:flex;justify-content:space-between;align-items:center;padding:20px 28px;border-bottom:1px solid var(--line)}
+  .price-row:last-child{border-bottom:none}
+  .price-row .l b{font-size:16px;font-weight:700}
+  .price-row .l i{display:block;font-style:normal;font-size:13px;color:var(--sub);margin-top:3px}
+  .price-row .r{font-size:18px;font-weight:700;white-space:nowrap}
+  .price-row .r small{font-size:12px;color:var(--sub);font-weight:500}
+  .note{text-align:center;margin-top:16px;font-size:13px;color:var(--sub)}
+
+  .book{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+  form{background:#fff;border:1px solid var(--line);padding:30px}
+  label{display:block;font-size:12px;letter-spacing:1px;font-weight:700;margin:16px 0 6px;color:var(--sub)}
+  input,select,textarea{width:100%;padding:12px 14px;border:1px solid var(--line);font-size:15px;font-family:inherit;background:var(--bg)}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--sage)}
+  .ok-msg{display:none;margin-top:16px;background:#eef3ef;color:var(--sage-dk);font-weight:700;font-size:14px;padding:14px}
+
+  .map{border:1px solid var(--line);background:var(--soft);height:260px;display:flex;align-items:center;justify-content:center;color:var(--sub);font-size:14px;margin-top:36px}
+  footer{border-top:1px solid var(--line);padding:36px 0;font-size:13px;color:var(--sub);text-align:center}
+
+  @media(max-width:760px){
+    .nav-links{display:none}
+    .book{grid-template-columns:1fr}
+  }
+</style>
+
+<nav><div class="wrap nav-in">
+  <div class="logo serif">ONNE<small>PILATES</small></div>
+  <div class="nav-links">
+    <a href="#program">프로그램</a><a href="#pricing">수강료</a><a href="#booking">체험 신청</a><a href="#location">오시는길</a>
+  </div>
+  <a class="nav-cta" href="#booking">1:1 체험 신청</a>
+</div></nav>
+
+<header class="hero">
+  <div class="eyebrow">SEORAE VILLAGE · PRIVATE PILATES</div>
+  <h1 class="serif">몸의 균형이 잡히면,<br>일상의 균형이 따라옵니다</h1>
+  <p>온느는 최대 4인 소수정예로만 수업합니다.
+  기구 필라테스 경력 10년 강사진이 오늘의 몸 상태부터 살펴드려요.</p>
+  <a class="btn btn-primary" href="#booking">1:1 체험 수업 신청</a>
+</header>
+
+<section id="program"><div class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">PROGRAM</div>
+    <h2 class="serif">수업 안내</h2>
+    <p class="sec-sub">모든 수업은 예약제이며, 리포머·캐딜락·체어 기구를 사용합니다.</p>
+  </div>
+  <div class="progs">
+    <div class="prog"><div class="num">01</div><h3>1:1 개인 레슨</h3><p>체형 분석 후 나만의 시퀀스로. 재활·산전산후·자세교정 특화.</p><div class="cap">50분 · 완전 맞춤</div></div>
+    <div class="prog"><div class="num">02</div><h3>2:1 듀엣</h3><p>친구·커플·모녀가 함께. 개인 레슨의 집중도를 합리적인 가격으로.</p><div class="cap">50분 · 2인</div></div>
+    <div class="prog"><div class="num">03</div><h3>그룹 (최대 4인)</h3><p>소수정예 기구 그룹. 레벨별 반 편성으로 처음이어도 괜찮습니다.</p><div class="cap">50분 · 최대 4인</div></div>
+  </div>
+</div></section>
+
+<section class="strip"><div class="wrap strip-in">
+  <div><b>10년+</b><i>강사진 평균 경력</i></div>
+  <div><b>최대 4인</b><i>모든 수업 소수정예</i></div>
+  <div><b>98%</b><i>재등록률 (2025년)</i></div>
+  <div><b>5.0</b><i>네이버 리뷰 187개</i></div>
+</div></section>
+
+<section id="pricing"><div class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">PRICING</div>
+    <h2 class="serif">수강료</h2>
+  </div>
+  <div class="price-table">
+    <div class="price-row"><div class="l"><b>체험 수업 (1:1)</b><i>체형 분석 + 맞춤 수업 50분</i></div><div class="r">30,000<small>원</small></div></div>
+    <div class="price-row"><div class="l"><b>1:1 개인 10회</b><i>회당 88,000원 · 3개월 유효</i></div><div class="r">880,000<small>원</small></div></div>
+    <div class="price-row"><div class="l"><b>2:1 듀엣 10회</b><i>1인 기준 · 3개월 유효</i></div><div class="r">550,000<small>원</small></div></div>
+    <div class="price-row"><div class="l"><b>그룹 10회</b><i>최대 4인 · 2개월 유효</i></div><div class="r">330,000<small>원</small></div></div>
+  </div>
+  <p class="note">* 첫 등록 시 그립삭스 증정 · 지인 소개 시 양측 1회 추가 적립</p>
+</div></section>
+
+<section id="booking"><div class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">TRIAL</div>
+    <h2 class="serif">체험 수업 신청</h2>
+  </div>
+  <div class="book">
+    <div>
+      <p style="color:var(--sub);font-size:15px">신청 주시면 <b style="color:var(--ink)">당일 안에</b> 확인 연락을 드리고,
+      희망 시간에 맞춰 담당 강사를 배정해 드립니다.<br><br>
+      처음 오시는 날은 10분 일찍 오셔서 체형 분석부터 받아보세요.
+      운동복과 그립삭스는 무료로 대여해 드립니다.</p>
+      <div class="map">🗺 지도 영역 — 실제 제작 시 네이버/카카오 지도가 연동됩니다</div>
+    </div>
+    <form onsubmit="event.preventDefault();this.querySelector('.ok-msg').style.display='block';this.reset();">
+      <label>성함</label><input required placeholder="김온느">
+      <label>연락처</label><input required type="tel" placeholder="010-0000-0000">
+      <label>희망 수업</label>
+      <select><option>1:1 개인 레슨</option><option>2:1 듀엣</option><option>그룹 (최대 4인)</option></select>
+      <label>희망 시간대</label>
+      <select><option>평일 오전</option><option>평일 오후</option><option>평일 저녁</option><option>주말</option></select>
+      <label>몸 상태 / 문의 (선택)</label><textarea rows="3" placeholder="예: 출산 후 6개월, 허리가 약한 편이에요"></textarea>
+      <button class="btn btn-primary" style="width:100%;margin-top:22px">체험 신청하기</button>
+      <div class="ok-msg">✓ 신청 완료! 당일 안에 연락드릴게요.</div>
+    </form>
+  </div>
+</div></section>
+
+<section id="location" style="padding-top:0"><div class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">LOCATION</div>
+    <h2 class="serif">오시는 길</h2>
+    <p class="sec-sub">서울 서초구 서래로 00, 2층 · 서래마을 입구 정류장 도보 1분<br>☎ 02-000-0000 · 화–금 10:00–21:00 / 토 10:00–15:00 / 일·월 휴무</p>
+  </div>
+</div></section>
+
+<footer>
+  <div class="serif" style="letter-spacing:3px;color:var(--ink)">ONNE PILATES</div>
+  <div style="margin-top:8px">© 2026 온느 필라테스 — 이 페이지는 제작 데모입니다. 동일 구성의 홈페이지를 24~48시간 내 제작해 드립니다.</div>
+</footer>
+</content>

@@ -1,0 +1,99 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>리드박스 — 상담 DB 관리 | 데모</title>
+<style>
+  :root{
+    --bg:#f6f8fa; --card:#ffffff; --ink:#1a202c; --sub:#64748b; --line:#e2e8f0;
+    --brand:#2563eb; --brand-soft:#eff6ff; --ok:#16a34a; --ok-soft:#f0fdf4;
+    --warn:#d97706; --warn-soft:#fffbeb; --new:#7c3aed; --new-soft:#f5f3ff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Apple SD Gothic Neo","Pretendard",-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:14px}
+  .top{background:var(--card);border-bottom:1px solid var(--line);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+  .top .logo{font-weight:900;font-size:16px}
+  .top .logo span{color:var(--brand)}
+  .top .who{font-size:13px;color:var(--sub)}
+  .wrap{max-width:1080px;margin:0 auto;padding:24px 20px}
+  h1{font-size:20px;font-weight:800}
+  .sub{color:var(--sub);margin-top:2px;font-size:13px}
+
+  .stats{margin-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .stat i{font-style:normal;font-size:12px;color:var(--sub);font-weight:700}
+  .stat b{display:block;font-size:26px;font-weight:900;margin-top:4px;letter-spacing:-.5px}
+  .stat small{font-size:12px;font-weight:700}
+  .up{color:var(--ok)} .dn{color:#dc2626}
+
+  .panel{margin-top:20px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .panel-head h2{font-size:15px;font-weight:800}
+  .tools{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:12px;font-weight:700;color:var(--sub);cursor:pointer}
+  .chip.on{background:var(--brand);border-color:var(--brand);color:#fff}
+  .btn-x{background:var(--ink);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:800;cursor:pointer;font-family:inherit}
+
+  .tbl{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;min-width:760px}
+  th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+  thead th{font-size:12px;color:var(--sub);background:#fafbfc;font-weight:800}
+  tbody tr:hover{background:#fafbfc}
+  .name{font-weight:800}
+  .src{font-size:12px;color:var(--sub)}
+  .pill{display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:800}
+  .p-new{background:var(--new-soft);color:var(--new)}
+  .p-call{background:var(--warn-soft);color:var(--warn)}
+  .p-done{background:var(--ok-soft);color:var(--ok)}
+  .p-hold{background:#f1f5f9;color:var(--sub)}
+  .foot{padding:14px 20px;font-size:12px;color:var(--sub);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+  .banner{margin-top:20px;background:var(--brand-soft);border:1px solid #bfdbfe;border-radius:12px;padding:16px 20px;font-size:13px;color:#1e40af}
+</style>
+
+<div class="top">
+  <div class="logo">LEAD<span>BOX</span> <span style="color:var(--sub);font-weight:500;font-size:12px">— 리프트 피트니스 강남점</span></div>
+  <div class="who">demo@liftfit.kr · 데모 계정</div>
+</div>
+
+<div class="wrap">
+  <h1>상담 신청 관리</h1>
+  <div class="sub">랜딩페이지로 들어온 상담 신청이 실시간으로 쌓입니다. 신청 즉시 카톡·메일로도 알림이 갑니다.</div>
+
+  <div class="stats">
+    <div class="stat"><i>오늘 신청</i><b>7건</b><small class="up">▲ 어제보다 +3</small></div>
+    <div class="stat"><i>이번 주 누적</i><b>32건</b><small class="up">▲ 지난주 대비 +28%</small></div>
+    <div class="stat"><i>등록 전환</i><b>11건</b><small class="up">전환율 34%</small></div>
+    <div class="stat"><i>광고 클릭 → 신청</i><b>4.8%</b><small class="dn">▼ 문구 A/B 테스트 권장</small></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <h2>신청 목록 <span style="color:var(--sub);font-weight:600;font-size:12px">총 128건</span></h2>
+      <div class="tools">
+        <span class="chip on">전체</span><span class="chip">신규</span><span class="chip">연락완료</span><span class="chip">등록전환</span>
+        <button class="btn-x">⬇ 엑셀 다운로드</button>
+      </div>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>신청일시</th><th>이름</th><th>연락처</th><th>관심 상품</th><th>희망 시간대</th><th>유입 경로</th><th>상태</th></tr></thead>
+      <tbody>
+        <tr><td>오늘 14:22</td><td class="name">김서연</td><td>010-52**-31**</td><td>1:1 PT</td><td>평일 저녁</td><td class="src">인스타 광고 A</td><td><span class="pill p-new">신규</span></td></tr>
+        <tr><td>오늘 13:05</td><td class="name">박준호</td><td>010-88**-20**</td><td>6개월 멤버십</td><td>평일 오전</td><td class="src">인스타 광고 A</td><td><span class="pill p-new">신규</span></td></tr>
+        <tr><td>오늘 11:41</td><td class="name">이하은</td><td>010-31**-77**</td><td>바디프로필</td><td>주말</td><td class="src">메타 광고 B</td><td><span class="pill p-call">연락완료</span></td></tr>
+        <tr><td>오늘 10:12</td><td class="name">최민재</td><td>010-64**-09**</td><td>그룹수업</td><td>평일 점심</td><td class="src">당근 광고</td><td><span class="pill p-call">연락완료</span></td></tr>
+        <tr><td>어제 21:37</td><td class="name">정유진</td><td>010-25**-44**</td><td>1:1 PT</td><td>평일 저녁</td><td class="src">인스타 광고 A</td><td><span class="pill p-done">등록전환</span></td></tr>
+        <tr><td>어제 19:03</td><td class="name">한지우</td><td>010-93**-16**</td><td>1개월 체험</td><td>주말</td><td class="src">검색(네이버)</td><td><span class="pill p-done">등록전환</span></td></tr>
+        <tr><td>어제 16:48</td><td class="name">오세훈</td><td>010-47**-82**</td><td>6개월 멤버십</td><td>평일 저녁</td><td class="src">메타 광고 B</td><td><span class="pill p-hold">보류</span></td></tr>
+        <tr><td>어제 09:15</td><td class="name">임나윤</td><td>010-70**-55**</td><td>바디프로필</td><td>평일 오전</td><td class="src">인스타 광고 A</td><td><span class="pill p-done">등록전환</span></td></tr>
+      </tbody>
+    </table></div>
+    <div class="foot"><span>1–8 / 128건</span><span>개인정보는 수집 동의 기반으로 저장되며 90일 후 자동 파기 옵션을 제공합니다</span></div>
+  </div>
+
+  <div class="banner">💡 <b>유입 경로별 성과:</b> 인스타 광고 A가 신청의 46%를 만들고 있습니다. 광고 B는 클릭 대비 신청이 낮아 랜딩 문구 교체를 권장합니다. — 이런 인사이트를 매주 자동 요약해 드립니다 (월 관리플랜)</div>
+
+  <div style="margin-top:28px;text-align:center;font-size:12px;color:var(--sub)">
+    이 화면은 제작 데모입니다 · 실제 구축 시 사장님 매장 데이터로 동일하게 제공됩니다
+  </div>
+</div>
+</content>
