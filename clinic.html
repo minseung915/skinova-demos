@@ -1,0 +1,93 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>라엘 피부과 — 여름 리프팅 이벤트 | 데모</title>
+<style>
+  :root{--ink:#2a2320;--sub:#8a807a;--line:#ece7e3;--bg:#fdfbfa;--soft:#f6f1ee;--rose:#c48b7a;--rose-dk:#a86e5d;--gold:#b89b6a}
+  *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+  body{font-family:"Apple SD Gothic Neo","Pretendard",-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+  .serif{font-family:"Nanum Myeongjo",serif}
+  nav{position:sticky;top:0;background:rgba(253,251,250,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:50}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-size:19px;font-weight:800;letter-spacing:1px}
+  .logo b{color:var(--rose)}
+  .nav-cta{background:var(--rose);color:#fff;padding:9px 18px;border-radius:999px;font-size:14px;font-weight:700;text-decoration:none}
+  .hero{padding:72px 0 60px;background:linear-gradient(180deg,var(--soft),var(--bg))}
+  .hero .ev{display:inline-block;background:var(--rose);color:#fff;font-size:13px;font-weight:700;padding:6px 16px;border-radius:999px;letter-spacing:1px}
+  .hero h1{margin-top:18px;font-size:clamp(28px,5vw,46px);font-weight:800;line-height:1.3;letter-spacing:-1px}
+  .hero h1 b{color:var(--rose)}
+  .hero p{margin-top:16px;color:var(--sub);font-size:17px;max-width:500px}
+  .btn{display:inline-block;padding:15px 30px;border-radius:12px;font-weight:800;font-size:15px;text-decoration:none;border:none;cursor:pointer}
+  .btn-p{background:var(--rose);color:#fff}.btn-p:hover{background:var(--rose-dk)}
+  .hero .btn{margin-top:28px}
+  .stats{margin-top:40px;display:flex;gap:36px;flex-wrap:wrap}
+  .stats b{display:block;font-size:24px;font-weight:800}.stats i{font-style:normal;font-size:13px;color:var(--sub)}
+  section{padding:60px 0}
+  .lbl{color:var(--gold);font-weight:800;font-size:12px;letter-spacing:2px}
+  h2{font-size:clamp(22px,3.5vw,30px);font-weight:800;margin-top:8px}
+  .cards{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 24px}
+  .card h3{font-size:18px;font-weight:800}.card .price{margin-top:10px;font-size:22px;font-weight:800;color:var(--rose)}
+  .card .was{font-size:14px;color:var(--sub);text-decoration:line-through;margin-left:6px}
+  .card p{margin-top:8px;font-size:14px;color:var(--sub)}
+  .book{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .book-in{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  form{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px}
+  label{display:block;font-size:13px;font-weight:800;margin:14px 0 6px}
+  input,select{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font-size:15px;font-family:inherit}
+  input:focus,select:focus{outline:none;border-color:var(--rose)}
+  .agree{margin-top:14px;font-size:12px;color:var(--sub);display:flex;gap:8px;align-items:flex-start}
+  .ok{display:none;margin-top:14px;background:#f0f7f2;color:#2e7d5b;font-weight:700;font-size:14px;padding:13px;border-radius:10px}
+  footer{padding:34px 0;font-size:13px;color:var(--sub);text-align:center;border-top:1px solid var(--line)}
+  @media(max-width:760px){.book-in{grid-template-columns:1fr}}
+</style>
+<nav><div class="wrap nav-in">
+  <div class="logo">RAEL <b>CLINIC</b></div>
+  <a class="nav-cta" href="#book">이벤트 상담신청</a>
+</div></nav>
+<header class="hero"><div class="wrap">
+  <span class="ev">7월 한정 여름 리프팅 이벤트</span>
+  <h1>처지는 계절,<br><b>탄력</b>은 미루지 마세요</h1>
+  <p>고주파 리프팅부터 물광·모공까지. 라엘 피부과가 여름 한정가로 상담해 드립니다.
+  지금 신청하시면 담당 상담실장이 당일 안내드립니다.</p>
+  <a class="btn btn-p" href="#book">이벤트가 상담 신청하기</a>
+  <div class="stats">
+    <div><b>15년+</b><i>대표원장 진료 경력</i></div>
+    <div><b>누적 8만건</b><i>시술 상담</i></div>
+    <div><b>당일</b><i>상담 예약 안내</i></div>
+  </div>
+</div></header>
+<section><div class="wrap">
+  <div class="lbl">SUMMER EVENT</div>
+  <h2>7월 이벤트 시술</h2>
+  <div class="cards">
+    <div class="card"><h3>고주파 리프팅</h3><div class="price">299,000원<span class="was">450,000</span></div><p>처진 턱선·볼 탄력. 1회 체험가.</p></div>
+    <div class="card"><h3>물광 스킨부스터</h3><div class="price">149,000원<span class="was">220,000</span></div><p>속건조·잔주름 개선. 여름 수분 집중.</p></div>
+    <div class="card"><h3>모공·탄력 레이저</h3><div class="price">99,000원<span class="was">180,000</span></div><p>늘어난 모공과 피부결 정돈.</p></div>
+  </div>
+</div></section>
+<section class="book" id="book"><div class="wrap book-in">
+  <div>
+    <div class="lbl">CONSULTATION</div>
+    <h2>이벤트 상담 신청</h2>
+    <p style="margin-top:12px;color:var(--sub)">신청 주시면 담당 상담실장이 당일 안내드리고,
+    원하시는 시간으로 예약을 도와드립니다. 상담은 무료이며 시술 강요는 없습니다.</p>
+  </div>
+  <form onsubmit="event.preventDefault();this.querySelector('.ok').style.display='block';">
+    <label>성함</label><input required placeholder="홍길동">
+    <label>연락처</label><input required type="tel" placeholder="010-0000-0000">
+    <label>관심 시술</label><select><option>고주파 리프팅</option><option>물광 스킨부스터</option><option>모공·탄력 레이저</option><option>기타 / 상담 후 결정</option></select>
+    <label>희망 상담 시간대</label><select><option>평일 오전</option><option>평일 오후</option><option>평일 저녁</option><option>주말</option></select>
+    <div class="agree"><input type="checkbox" style="width:auto;margin-top:3px" required><span>개인정보 수집·이용에 동의합니다. (상담 목적, 보관 후 파기)</span></div>
+    <button class="btn btn-p" style="width:100%;margin-top:18px">상담 신청하기</button>
+    <div class="ok">✓ 신청 완료! 담당 실장이 당일 연락드립니다.</div>
+  </form>
+</div></section>
+<section><div class="wrap">
+  <div class="lbl">LOCATION</div>
+  <h2>오시는 길</h2>
+  <p style="margin-top:10px;color:var(--sub)">서울 강남구 테헤란로 000, 라엘타워 5F · 강남역 4번 출구 도보 3분<br>진료시간 평일 10:00–20:00 / 토 10:00–16:00</p>
+</div></section>
+<footer>© 2026 RAEL CLINIC — 이 페이지는 제작 데모입니다. 실제 제작 시 의료광고 사전심의 기준에 맞춰 문구를 조정합니다.</footer>
+</content>

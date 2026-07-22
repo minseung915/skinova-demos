@@ -1,0 +1,96 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>채움 인테리어 — 무료 방문견적 | 데모</title>
+<style>
+  :root{--ink:#2b2723;--sub:#8b8175;--line:#e9e4dd;--bg:#fdfcfa;--soft:#f4efe8;--terra:#b56a4a;--terra-dk:#9a563a;--olive:#6f7355}
+  *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+  body{font-family:"Apple SD Gothic Neo","Pretendard",-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+  nav{position:sticky;top:0;background:rgba(253,252,250,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:50}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-size:19px;font-weight:800;letter-spacing:1px}.logo b{color:var(--terra)}
+  .nav-cta{background:var(--terra);color:#fff;padding:9px 18px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none}
+  .hero{padding:74px 0 60px;background:linear-gradient(180deg,var(--soft),var(--bg))}
+  .hero .eyebrow{color:var(--terra);font-size:13px;letter-spacing:2px;font-weight:700}
+  .hero h1{margin-top:16px;font-size:clamp(28px,5vw,46px);font-weight:800;line-height:1.28;letter-spacing:-1px}
+  .hero p{margin-top:16px;color:var(--sub);font-size:17px;max-width:500px}
+  .btn{display:inline-block;padding:15px 32px;border-radius:10px;font-weight:800;font-size:15px;text-decoration:none;border:none;cursor:pointer}
+  .btn-t{background:var(--terra);color:#fff}.btn-t:hover{background:var(--terra-dk)}
+  .hero .btn{margin-top:28px}
+  .hl{margin-top:42px;display:flex;gap:34px;flex-wrap:wrap}
+  .hl b{display:block;font-size:22px;font-weight:800}.hl i{font-style:normal;font-size:13px;color:var(--sub)}
+  section{padding:60px 0}
+  .lbl{color:var(--olive);font-weight:800;font-size:12px;letter-spacing:2px}
+  h2{font-size:clamp(22px,3.5vw,30px);font-weight:800;margin-top:8px}
+  .steps{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+  .step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px}
+  .step .n{width:30px;height:30px;border-radius:8px;background:var(--terra);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .step h3{margin-top:12px;font-size:16px;font-weight:800}.step p{margin-top:6px;font-size:14px;color:var(--sub)}
+  .gal{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+  .g{height:150px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px}
+  .book{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .book-in{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  form{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px}
+  label{display:block;font-size:13px;font-weight:800;margin:14px 0 6px}
+  input,select{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font-size:15px;font-family:inherit}
+  input:focus,select:focus{outline:none;border-color:var(--terra)}
+  .agree{margin-top:14px;font-size:12px;color:var(--sub);display:flex;gap:8px;align-items:flex-start}
+  .ok{display:none;margin-top:14px;background:#f0f6ef;color:#4f7a3f;font-weight:700;font-size:14px;padding:13px;border-radius:10px}
+  footer{padding:34px 0;font-size:13px;color:var(--sub);text-align:center;border-top:1px solid var(--line)}
+  @media(max-width:760px){.book-in{grid-template-columns:1fr}}
+</style>
+<nav><div class="wrap nav-in">
+  <div class="logo">채움 <b>인테리어</b></div>
+  <a class="nav-cta" href="#book">무료 견적받기</a>
+</div></nav>
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">아파트 · 상가 · 주택 리모델링</div>
+  <h1>사는 공간이 바뀌면,<br>매일이 달라집니다</h1>
+  <p>20평대부터 대형 평형까지. 채움 인테리어가 방문 실측부터 3D 설계,
+  시공, A/S까지 책임집니다. 견적은 무료이며, 상담이 계약을 강요하지 않습니다.</p>
+  <a class="btn btn-t" href="#book">무료 방문견적 신청</a>
+  <div class="hl">
+    <div><b>500+</b><i>누적 시공</i></div>
+    <div><b>3년</b><i>시공 A/S 보증</i></div>
+    <div><b>무료</b><i>방문 실측·견적</i></div>
+  </div>
+</div></header>
+<section><div class="wrap">
+  <div class="lbl">PORTFOLIO</div>
+  <h2>시공 사례</h2>
+  <div class="gal">
+    <div class="g" style="background:linear-gradient(135deg,#b56a4a,#9a563a)">모던 34py 아파트</div>
+    <div class="g" style="background:linear-gradient(135deg,#6f7355,#565a41)">내추럴 24py 신혼집</div>
+    <div class="g" style="background:linear-gradient(135deg,#8a7a68,#6b5d4d)">카페형 상가</div>
+  </div>
+</div></section>
+<section><div class="wrap">
+  <div class="lbl">PROCESS</div>
+  <h2>진행 과정</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>무료 방문 실측</h3><p>현장을 직접 보고 정확한 견적을 냅니다.</p></div>
+    <div class="step"><div class="n">2</div><h3>3D 설계·견적</h3><p>완성 이미지와 상세 견적서를 함께 드립니다.</p></div>
+    <div class="step"><div class="n">3</div><h3>책임 시공</h3><p>공정별 진행 보고와 함께 정해진 일정으로 시공합니다.</p></div>
+    <div class="step"><div class="n">4</div><h3>3년 A/S</h3><p>시공 후에도 하자는 3년간 책임집니다.</p></div>
+  </div>
+</div></section>
+<section class="book" id="book"><div class="wrap book-in">
+  <div>
+    <div class="lbl">FREE QUOTE</div>
+    <h2>무료 방문견적 신청</h2>
+    <p style="margin-top:12px;color:var(--sub)">평형과 원하시는 범위만 알려주시면 대략 견적을 안내드리고,
+    방문 실측 일정을 잡아드립니다. 견적은 무료이며 계약 의무가 없습니다.</p>
+  </div>
+  <form onsubmit="event.preventDefault();this.querySelector('.ok').style.display='block';">
+    <label>성함</label><input required placeholder="홍길동">
+    <label>연락처</label><input required type="tel" placeholder="010-0000-0000">
+    <label>시공 공간</label><select><option>아파트 전체</option><option>부분(주방·욕실 등)</option><option>상가·사무실</option><option>단독주택</option></select>
+    <label>평형 / 대략 예산</label><input placeholder="예: 34평 / 4천만원대">
+    <div class="agree"><input type="checkbox" style="width:auto;margin-top:3px" required><span>개인정보 수집·이용에 동의합니다. (견적 상담 목적)</span></div>
+    <button class="btn btn-t" style="width:100%;margin-top:18px">무료 견적 신청하기</button>
+    <div class="ok">✓ 신청 완료! 담당자가 견적 안내 후 방문 일정을 잡아드립니다.</div>
+  </form>
+</div></section>
+<footer>© 2026 채움 인테리어 — 이 페이지는 제작 데모입니다.</footer>
+</content>
